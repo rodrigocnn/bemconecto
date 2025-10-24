@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+/* Hide Input Numbers Arrow */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide Input Numbers Arrow */
+.poppins {
+  font-family: "Poppins", sans-serif !important;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+.text-large {
+  font-size: 3rem;
+}
+@media (max-width: 768px) {
+  .text-large {
+    font-size: 2rem;
+  }
+}
+.text-semilarge {
+  font-size: 2rem;
+}
+@media (max-width: 768px) {
+  .text-semilarge {
+    font-size: 1.6rem;
+  }
+}
+.text-medium {
+  font-size: 1.3rem;
+}
+@media (max-width: 768px) {
+  .text-medium {
+    font-size: 1rem;
+  }
+}
+.px-2 {
+  padding: 0 0.5rem;
+}
+.leading-0 {
+  line-height: 0;
+}
+.top-43 {
+  top: 43%;
+}
+.top-87 {
+  top: 87%;
+}
+.width-90 {
+  width: 90%;
+}
+
+.fc-event {
+  cursor: pointer;
+}
+
+.fc-cadastrar-button,
+.fc-toolbar-chunk button {
+  background-color: #0284c7 !important;
+  border: none !important;
+}
+
+.fc-button-group button {
+  margin-right: 5px;
+}
+
+.fc-h-event {
+  border: none;
+}
+
+.fc-button,
+.fc-button-primary,
+.fc-cadastrar-button {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background-clip: padding-box; /* evita sombra do browser */
+}
+
+.tox-promotion,
+.tox-statusbar__branding {
+  visibility: hidden;
+}
+
+.textarea-base {
+  @apply w-full border border-gray-300 rounded-lg p-2 
+         focus:ring-sky-400 focus:border-sky-400 min-h-[120px];
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+}
+
+.fc-toolbar-title {
+  font-size: 1.5rem !important;
+  text-transform: capitalize;
+}

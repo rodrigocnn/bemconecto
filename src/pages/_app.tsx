@@ -1,0 +1,20 @@
+// Tailwind global
+import "@/styles/globals.css";
+
+// CSS do DataGrid (global)
+
+import type { AppProps } from "next/app";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+
+export default function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Component {...pageProps} />
+      <ToastContainer />
+    </QueryClientProvider>
+  );
+}

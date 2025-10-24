@@ -1,108 +1,110 @@
-# Imovyx
+# 🧠 BemConecto
 
-**Imovyx** é uma aplicação web desenvolvida em **React** com **TypeScript**, focada na gestão imobiliária para administradoras de imóveis. Este repositório contém apenas o frontend da aplicação, responsável pela interface e experiência do usuário.
+**BemConecto** é uma aplicação web desenvolvida em **React** com **TypeScript** e **Next.js**, voltada para **gestão de atendimentos psicológicos**.  
+O sistema foi projetado para psicólogos que desejam centralizar o gerenciamento de pacientes, sessões e agendamentos de forma simples, moderna e segura.
+
+Este repositório contém apenas o **frontend** da aplicação — responsável pela interface, experiência do usuário e integração com a API Node Express.
 
 ## ✨ Visão Geral
 
-O sistema permite o gerenciamento completo de imóveis, proprietários, clientes e contratos de locação, oferecendo uma interface moderna, responsiva e intuitiva para facilitar as operações do dia a dia no setor imobiliário.
+O **BemConecto** oferece uma solução completa para o dia a dia do psicólogo, permitindo organizar a **agenda de atendimentos**, registrar **sessões clínicas** (com observações, intervenções e planos terapêuticos), além de manter um **histórico de pacientes** e **controle de consultas**.
 
-## Este frontend consome uma API construída com **Ruby on Rails**.
+A aplicação foi construída com foco em **usabilidade**, **segurança** e **performance**, proporcionando uma experiência fluida tanto em desktop quanto em dispositivos móveis.
 
 ## 🧱 Tecnologias Utilizadas
 
+- **Next.js** (base do projeto)
 - **React**
 - **TypeScript**
-- **React Query** (para gerenciamento de dados assíncronos e cache)
 - **Tailwind CSS** (para estilização)
-- **Next.js** (ou Next.js, caso esteja usando — edite conforme necessário)
-- Integração com API Rails via **JWT**
-
----
+- **React Query** (para gerenciamento de dados assíncronos e cache)
+- **Axios** (para comunicação com a API)
+- Autenticação via **JWT**
 
 ## 🔐 Autenticação
 
-A autenticação é baseada em **tokens JWT** gerados pelo backend Rails com `Devise` + `devise-jwt`. O token é armazenado em local seguro e usado nas requisições autenticadas via headers.
+O processo de autenticação é realizado via **JSON Web Token (JWT)**.
 
----
+Após o login, o token é armazenado de forma segura e utilizado em todas as requisições autenticadas, garantindo o acesso apenas a psicólogos e usuários autorizados.
 
 ## 🏠 Funcionalidades Principais
 
-- Cadastro e listagem de **imóveis**
-- Gerenciamento de **proprietários** e **clientes**
-- Cadastro e acompanhamento de **contratos de locação**
-- Controle de **pagamentos mensais**
-- Localização dos imóveis via **latitude/longitude**
-- Interface para **administração e controle de acessos**
-- Filtragem por cidade, bairro, tipo de imóvel, etc.
+- 📅 **Gestão de Agenda**  
+  Visualização e controle completo de compromissos e atendimentos agendados.  
+  Inclui status como _Agendado_, _Confirmado_, _Reagendado_, _Concluído_ e _Cancelado_.
 
----
+- 👩‍⚕️ **Gerenciamento de Pacientes**  
+  Cadastro, edição e histórico de pacientes, com informações pessoais, anotações e dados clínicos.
+
+- 🧩 **Sessões Psicológicas**  
+  Registro detalhado de cada atendimento: resumo, observações comportamentais, intervenções, hipóteses diagnósticas, planos terapêuticos e técnicas utilizadas.
+
+- 🧾 **Histórico Clínico**  
+  Acesso rápido ao histórico de sessões e evoluções de cada paciente.
+
+- 🔒 **Controle de Usuários e Acessos**  
+  Perfis diferenciados (Administrador, Psicólogo, Staff), com permissões ajustadas ao papel do usuário.
+
+- 📊 **Dashboard de Indicadores**  
+  Visão geral de atendimentos realizados, pacientes cadastrados, sessões por status e outros dados de produtividade.
 
 ## 🚀 Deploy
 
 A aplicação está hospedada via **Vercel**:
 
-🔗 [Link para o ambiente de produção](https://imovyx.vercel.app)
+🔗 [Link para o ambiente de produção](https://bemconecto.vercel.app)
 
 ## ⚙️ Instalação e Execução Local
 
 ```bash
 # Clone o repositório
-git clone https://github.com/rodrigocnn/imovyx.git
+git clone https://github.com/rodrigocnn/bemconecto.git
 
 # Acesse o diretório
-cd imovyx
+cd bemconecto
 
 # Instale as dependências
 npm install
 
 # Crie um arquivo .env com as variáveis de ambiente necessárias (exemplo abaixo)
+NEXT_PUBLIC_API_URL=https://api.bemconecto.com
+NEXT_PUBLIC_JWT_SECRET=seu_token_aqui
 
 # Execute em modo de desenvolvimento
 npm run dev
 ```
 
-## 🗂 Estrutura do Projeto
-
-```bash
+## Estrutura do Projeto
 
 src/
-├── assets/       # Arquivos estáticos ou estilizações adicionais (ex: imagens, SVGs, fontes)
-├── components/   # Componentes reutilizáveis como botões, inputs, modais, etc.
-├── hooks/        # Hooks personalizados com lógica reutilizável em toda a aplicação
-├── interfaces/   # Definições de tipos e interfaces TypeScript de uso global
-├── modules/      # Módulos organizados por domínio/funcionalidade (ex: auth, dashboard, etc.)
-├── pages/        # Páginas principais da aplicação, geralmente associadas às rotas
-├── services/     # Lógicas de comunicação com APIs (ex: instâncias e chamadas com Axios)
-├── styles/       # Estilizações globais (ex: configuração do Tailwind, variáveis CSS)
-└── utils/        # Funções utilitárias e helpers de uso geral
-```
+├── assets/ # Arquivos estáticos (ícones, imagens, fontes)
+├── components/ # Componentes reutilizáveis da interface
+├── hooks/ # Hooks personalizados (autenticação, dados, UI)
+├── interfaces/ # Tipagens e interfaces TypeScript globais
+├── modules/ # Módulos por domínio (auth, patients, sessions, appointments, dashboard)
+├── pages/ # Páginas do Next.js, rotas principais da aplicação
+├── services/ # Configuração e chamadas à API com Axios
+├── styles/ # Estilizações globais e configuração do Tailwind
+└── utils/ # Funções auxiliares e helpers
 
-## 🧾 Backend
+# 🧾 Backend (referência)
 
-Este frontend consome uma API Rails robusta, com as seguintes entidades principais:
+O frontend se comunica com uma API Node + Express + Prisma + PostgreSQL, que contém as seguintes entidades principais:
 
-users (admin)
-clients (locatários)
-owners (proprietários de imóveis)
-properties (imóveis disponíveis)
-rental_contracts (contratos de locação)
-rent_payments (mensalidades de aluguel)
-cities e neighborhoods
+Psychologists — dados profissionais e credenciais
+Patients — informações e histórico dos pacientes
+Sessions — registros detalhados de atendimentos psicológicos
+Appointments — controle da agenda e status das consultas
+Users — gerenciamento de acesso e papéis (Admin, Psicólogo, Staff)
 
-A autenticação é realizada via JWT, e a segurança de acesso é garantida por middlewares e validações de token.
-
-## 🧑‍💻 Contribuindo
+# 🧑‍💻 Contribuindo
 
 No momento, este projeto é privado e não está aberto a contribuições externas.
 
 📸 Screenshots
 
- <p align="center">
-    <img src="public/imovyx.png"  width="600" alt="Dashboard" /> 
- </p>
+<p align="center"> <img src="public/bemconecto-dashboard.png" width="600" alt="Dashboard do BemConecto" /> </p>
 
-🧠 Autor
-Desenvolvido por [Seu Nome], programador com experiência em React, Rails e sistemas de gestão.
+# 📄 Licença
 
-📄 Licença
 Este projeto está licenciado sob a MIT License.

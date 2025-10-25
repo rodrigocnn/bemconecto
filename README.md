@@ -1,110 +1,118 @@
-# 🧠 BemConecto
+# BemConecto
 
-**BemConecto** é uma aplicação web desenvolvida em **React** com **TypeScript** e **Next.js**, voltada para **gestão de atendimentos psicológicos**.  
-O sistema foi projetado para psicólogos que desejam centralizar o gerenciamento de pacientes, sessões e agendamentos de forma simples, moderna e segura.
+**BemConecto** is a web application built with **React**, **TypeScript**, and **Next.js**, designed to help psychologists manage their appointments, patients, and therapy sessions in one place.  
+This repository contains the **frontend** of the application, focused on delivering a modern, intuitive, and responsive user experience.
 
-Este repositório contém apenas o **frontend** da aplicação — responsável pela interface, experiência do usuário e integração com a API Node Express.
+---
 
-## ✨ Visão Geral
+## ✨ Overview
 
-O **BemConecto** oferece uma solução completa para o dia a dia do psicólogo, permitindo organizar a **agenda de atendimentos**, registrar **sessões clínicas** (com observações, intervenções e planos terapêuticos), além de manter um **histórico de pacientes** e **controle de consultas**.
+The system allows psychologists to manage patients, view and organize their schedules, record session notes, and analyze key metrics related to their clinical practice — all within a clean and easy-to-use interface.
 
-A aplicação foi construída com foco em **usabilidade**, **segurança** e **performance**, proporcionando uma experiência fluida tanto em desktop quanto em dispositivos móveis.
+This frontend consumes a **Node.js + Express** API that handles authentication, business logic, and data persistence.
 
-## 🧱 Tecnologias Utilizadas
+---
 
-- **Next.js** (base do projeto)
-- **React**
-- **TypeScript**
-- **Tailwind CSS** (para estilização)
-- **React Query** (para gerenciamento de dados assíncronos e cache)
-- **Axios** (para comunicação com a API)
-- Autenticação via **JWT**
+## 🧱 Tech Stack
 
-## 🔐 Autenticação
+- **Next.js** – React framework for production-grade applications
+- **React** – Component-based UI library
+- **TypeScript** – Static typing for better scalability and reliability
+- **React Query** – Asynchronous data fetching and caching
+- **Tailwind CSS** – Utility-first CSS framework for fast and consistent styling
+- **JWT Integration** – Authentication via JSON Web Tokens
 
-O processo de autenticação é realizado via **JSON Web Token (JWT)**.
+---
 
-Após o login, o token é armazenado de forma segura e utilizado em todas as requisições autenticadas, garantindo o acesso apenas a psicólogos e usuários autorizados.
+## 🏠 Main Features
 
-## 🏠 Funcionalidades Principais
+- Patient registration and management
+- Psychologist profile management
+- Appointment scheduling and calendar view
+- Session records with notes and progress tracking
+- Appointment status control (scheduled, completed, canceled, etc.)
+- Dashboard with summary and performance metrics
+- Secure authentication and session control
+- Responsive design optimized for desktop and mobile use
 
-- 📅 **Gestão de Agenda**  
-  Visualização e controle completo de compromissos e atendimentos agendados.  
-  Inclui status como _Agendado_, _Confirmado_, _Reagendado_, _Concluído_ e _Cancelado_.
+---
 
-- 👩‍⚕️ **Gerenciamento de Pacientes**  
-  Cadastro, edição e histórico de pacientes, com informações pessoais, anotações e dados clínicos.
+## 🚀 Deployment
 
-- 🧩 **Sessões Psicológicas**  
-  Registro detalhado de cada atendimento: resumo, observações comportamentais, intervenções, hipóteses diagnósticas, planos terapêuticos e técnicas utilizadas.
+The application is deployed on **Vercel**:  
+🔗 [Production Environment](https://bemconecto.vercel.app)
 
-- 🧾 **Histórico Clínico**  
-  Acesso rápido ao histórico de sessões e evoluções de cada paciente.
+---
 
-- 🔒 **Controle de Usuários e Acessos**  
-  Perfis diferenciados (Administrador, Psicólogo, Staff), com permissões ajustadas ao papel do usuário.
+## ⚙️ Installation and Local Setup
 
-- 📊 **Dashboard de Indicadores**  
-  Visão geral de atendimentos realizados, pacientes cadastrados, sessões por status e outros dados de produtividade.
-
-## 🚀 Deploy
-
-A aplicação está hospedada via **Vercel**:
-
-🔗 [Link para o ambiente de produção](https://bemconecto.vercel.app)
-
-## ⚙️ Instalação e Execução Local
-
-```bash
-# Clone o repositório
+Clone the repository  
 git clone https://github.com/rodrigocnn/bemconecto.git
 
-# Acesse o diretório
+Enter the project directory  
 cd bemconecto
 
-# Instale as dependências
+Install dependencies  
 npm install
 
-# Crie um arquivo .env com as variáveis de ambiente necessárias (exemplo abaixo)
+Create an `.env` file with the required environment variables (example below):  
 NEXT_PUBLIC_API_URL=https://api.bemconecto.com
-NEXT_PUBLIC_JWT_SECRET=seu_token_aqui
 
-# Execute em modo de desenvolvimento
+Run the project in development mode  
 npm run dev
-```
 
-## Estrutura do Projeto
+---
 
-src/
-├── assets/ # Arquivos estáticos (ícones, imagens, fontes)
-├── components/ # Componentes reutilizáveis da interface
-├── hooks/ # Hooks personalizados (autenticação, dados, UI)
-├── interfaces/ # Tipagens e interfaces TypeScript globais
-├── modules/ # Módulos por domínio (auth, patients, sessions, appointments, dashboard)
-├── pages/ # Páginas do Next.js, rotas principais da aplicação
-├── services/ # Configuração e chamadas à API com Axios
-├── styles/ # Estilizações globais e configuração do Tailwind
-└── utils/ # Funções auxiliares e helpers
+## 🗂 Project Structure
 
-# 🧾 Backend (referência)
+src/  
+├── assets/ → Static files or additional styles (e.g., images, SVGs, fonts)  
+├── components/ → Reusable UI components (buttons, inputs, modals, etc.)  
+├── hooks/ → Custom React hooks for shared logic  
+├── interfaces/ → TypeScript interfaces and type definitions  
+├── modules/ → Domain-based modules (auth, dashboard, etc.)  
+├── pages/ → Main pages linked to routes  
+├── services/ → API communication logic (Axios instances, endpoints)  
+├── styles/ → Global styling configuration (Tailwind, CSS variables)  
+└── utils/ → Helper and utility functions
 
-O frontend se comunica com uma API Node + Express + Prisma + PostgreSQL, que contém as seguintes entidades principais:
+---
 
-Psychologists — dados profissionais e credenciais
-Patients — informações e histórico dos pacientes
-Sessions — registros detalhados de atendimentos psicológicos
-Appointments — controle da agenda e status das consultas
-Users — gerenciamento de acesso e papéis (Admin, Psicólogo, Staff)
+## 🧾 Backend Integration
 
-# 🧑‍💻 Contribuindo
+This frontend connects to a Node.js + Express API powered by Prisma + PostgreSQL, which manages entities such as:
 
-No momento, este projeto é privado e não está aberto a contribuições externas.
+- psychologists
+- patients
+- sessions
+- appointments
+- users
 
-📸 Screenshots
+Authentication is handled via JWT tokens, ensuring secure access control and protected routes.
 
-<p align="center"> <img src="public/bemconecto-dashboard.png" width="600" alt="Dashboard do BemConecto" /> </p>
+---
 
-# 📄 Licença
+## 🧑‍💻 Contributing
 
-Este projeto está licenciado sob a MIT License.
+This project is private and not currently open for external contributions.
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="public/bemconecto.png" width="600" alt="Dashboard Screenshot" />
+</p>
+
+---
+
+## 🧠 Author
+
+Developed by **Rodrigo César**, a software developer experienced in React, Node.js, and modern web application architecture.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+Feel free to use, modify, and share it.

@@ -110,6 +110,7 @@ export function FormPatient(props: FormPatientProps) {
                     id="masculino"
                     name="gender"
                     value="MASCULINO"
+                    checked={form.gender === "MASCULINO"}
                     onChange={handleChange}
                   />
                   <Label htmlFor="masculino">Masculino</Label>
@@ -119,6 +120,7 @@ export function FormPatient(props: FormPatientProps) {
                     id="feminino"
                     name="gender"
                     value="FEMININO"
+                    checked={form.gender === "FEMININO"}
                     onChange={handleChange}
                   />
                   <Label htmlFor="feminino">Feminino</Label>

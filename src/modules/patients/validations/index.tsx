@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 import { Patient } from "../interfaces";
 
 export const clientsSchema = yup.object().shape({
+  gender: yup.string().required("Sexo é obrigatório"),
   phone: yup.string().required("Telefone é obrigatório"),
+  birthDate: yup.string().required("Data de Nascimento é obrigatório"),
   email: yup.string().required("Email é obrigatório"),
   name: yup.string().required("Nome é obrigatório"),
 });

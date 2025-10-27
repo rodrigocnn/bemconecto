@@ -5,6 +5,11 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
+import { ImUserPlus } from "react-icons/im";
+import { FaCalendarCheck } from "react-icons/fa6";
+import { MdCancel } from "react-icons/md";
+import { ImCheckboxChecked } from "react-icons/im";
+
 import { CardDashboard } from "@/components/admin/CardDashboard";
 import { getChartData } from "./charts";
 import { useGetInfoDashboard } from "@/modules/dashboard/hooks/useGetInfoDashboard";
@@ -18,8 +23,6 @@ export default function Home() {
     data?.chartAppointments || []
   );
 
-  console.log("data", data?.patients.total);
-
   return (
     <LayoutAdmin>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
@@ -31,6 +34,7 @@ export default function Home() {
           color="blue"
           link="/admin/contratos"
           footerDescription="Total de Pacientes"
+          icon={<ImUserPlus fontSize={20} />}
         />
 
         <CardDashboard
@@ -41,6 +45,7 @@ export default function Home() {
           color="blue"
           link="/admin/contratos"
           footerDescription="Total de Agendamentos"
+          icon={<FaCalendarCheck fontSize={20} />}
         />
 
         <CardDashboard
@@ -51,6 +56,7 @@ export default function Home() {
           color="blue"
           link="/admin/contratos"
           footerDescription="Total de Atendimentos"
+          icon={<ImCheckboxChecked fontSize={20} />}
         />
         <CardDashboard
           title="Não Compareceu"
@@ -60,6 +66,7 @@ export default function Home() {
           color="blue"
           link="/admin/contratos"
           footerDescription="Total de Não Comparecimentos"
+          icon={<MdCancel fontSize={20} />}
         />
       </div>
 

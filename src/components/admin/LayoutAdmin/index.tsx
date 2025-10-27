@@ -28,7 +28,7 @@ const LayoutAdmin = ({ children }: { children: ReactNode }) => {
         {/* Header */}
         <header className="bg-sky-600/100 text-white p-4  flex justify-between items-center shadow-md">
           <div className="flex items-center space-x-8 ">
-            <h1 className="text-xl font-semibold">MINDCARE</h1>
+            <h1 className="text-xl font-semibold">BEMCONECTO</h1>
 
             <nav className="flex space-x-6">
               {menuItems.map((item) => (

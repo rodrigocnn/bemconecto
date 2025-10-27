@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 interface CardDashboardProps {
   title: string;
@@ -8,6 +8,7 @@ interface CardDashboardProps {
   miniDescription: string;
   link: string;
   color: "purple" | "green" | "blue" | "rose";
+  icon: ReactNode;
 }
 
 export function CardDashboard(props: CardDashboardProps) {
@@ -18,29 +19,15 @@ export function CardDashboard(props: CardDashboardProps) {
     miniDescription,
     color,
     link,
+    icon,
     footerDescription,
   } = props;
 
   return (
     <div className="rounded-lg text-card-foreground border bg-white dark:bg-background shadow-sm hover:shadow-md transition">
       <div className="space-y-1.5 p-3 md:p-4 xxl:p-6 flex flex-col items-start gap-1">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          className="lucide lucide-calendar h-6 w-6 text-blue-500"
-        >
-          <path d="M8 2v4"></path>
-          <path d="M16 2v4"></path>
-          <rect width="18" height="18" x="3" y="4" rx="2"></rect>
-          <path d="M3 10h18"></path>
-        </svg>
+        <h3> {icon} </h3>
+
         <h2 className="xl:text-2xl mb-2 tracking-tight text-base font-semibold text-foreground">
           {title}
         </h2>

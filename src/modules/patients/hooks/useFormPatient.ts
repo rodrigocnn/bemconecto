@@ -70,7 +70,7 @@ export const useFormPatient = (
       try {
         const formMapped = persistMapperPatient(form);
         if (edit) {
-          updatePatient.mutate(form);
+          updatePatient.mutate(formMapped);
         } else {
           createPatient.mutate(formMapped);
         }
